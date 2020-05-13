@@ -3,7 +3,7 @@ CREATE TABLE "pets" (
 "name" VARCHAR(50) NOT NULL,
 "breed" VARCHAR(25) NOT NULL,
 "color" VARCHAR(25) NOT NULL,
-"checked_in" BOOLEAN,
+"checked_in" DATE,
 "owner_id" INT REFERENCES "owners"
 );
 
