@@ -1,0 +1,17 @@
+.title {
+    text-align: center;
+    padding: 60px;
+    background-color: purple;
+    color: whitesmoke;
+}
+
+.nav {
+    display: inline;
+    border: gray 1px solid;
+    text-align: center;
+}
+
+.nav-container {
+    padding: 12px;
+    text-align: center;
+}
