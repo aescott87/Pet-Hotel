@@ -1,3 +1,8 @@
+CREATE TABLE "owners" (
+    "id" SERIAL PRIMARY KEY,
+    "name" VARCHAR(50)
+);
+
 CREATE TABLE "pets" (
 "id" SERIAL PRIMARY KEY,
 "name" VARCHAR(50) NOT NULL,
@@ -5,9 +10,4 @@ CREATE TABLE "pets" (
 "color" VARCHAR(25) NOT NULL,
 "checked_in" DATE,
 "owner_id" INT REFERENCES "owners"
-);
-
-CREATE TABLE "owners" (
-"id" SERIAL PRIMARY KEY,
-"name" VARCHAR(50)
 );
