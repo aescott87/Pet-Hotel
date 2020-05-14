@@ -21,4 +21,22 @@ router.post(
   }
 );
 
+router.get(
+  '/',
+  (req: Request, res: Response, next: express.NextFunction): void => {
+    const queryString: string = `SELECT * FROM owners ;`
+
+    pool
+      .query(queryString)
+      .then((response: any): void => {
+        console.log(response)
+        res.send(response.rows);
+      })
+      .catch((err: string): void => {
+        console.log(err);
+        res.sendStatus(500);
+      });
+  }
+);
+
 export default router;
