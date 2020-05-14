@@ -2,6 +2,7 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 function* postOwner(action) {
+  console.log('in post owner')
   try {
     yield axios.post('/api/owners', action.payload);
 
@@ -10,9 +11,9 @@ function* postOwner(action) {
     console.error('Get owner failed', error);
   }
 }
-function* getOwnerSaga() {
+function* postOwnerSaga() {
     yield takeLatest('POST_OWNER', postOwner);
 }
 
 
-export default getOwnerSaga;
+export default postOwnerSaga;
