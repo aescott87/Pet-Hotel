@@ -7,7 +7,7 @@ const router: express.Router = express.Router();
 router.get(
     '/',
     (req: Request, res: Response, next: express.NextFunction): void => {
-      const queryString: string = `SELECT owners.name as owner_name, pets.name, pets.breed, pets.color, pets.checked_in FROM pets JOIN owners ON owners.id = pets.owner_id;`
+      const queryString: string = `SELECT pets.id, owners.name as owner_name, pets.name, pets.breed, pets.color, pets.checked_in FROM pets JOIN owners ON owners.id = pets.owner_id;`
   
       pool
         .query(queryString)
@@ -30,6 +30,22 @@ router.post(
 
     pool
       .query(queryText, [req.body.name, req.body.breed, req.body.color, req.body.owner_id])
+      .then((result) => {
+        res.sendStatus(200);
+      })
+      .catch((error) => {
+        console.log("error posting into ", error);
+        res.sendStatus(500);
+      });
+  }
+);
+router.put(
+  "/petId",
+  (req: Request, res: Response, next: express.NextFunction): void => {
+    let queryText = `UPDATE PETS SET checked_in = NULL WHERE id = $1 `;
+
+    pool
+      .query(queryText, [req.body.id])
       .then((result) => {
         res.sendStatus(200);
       })
