@@ -55,17 +55,4 @@
     "ts-node": "^8.10.1"
   },
   "heroku-run-build-script": true,
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aescott87/pet-hotel.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/aescott87/pet-hotel/issues"
-  },
-  "homepage": "https://github.com/aescott87/pet-hotel#readme"
-}
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)."}
