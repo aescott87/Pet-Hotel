@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import {HashRouter as Router, Route, Link, Redirect} from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { connect } from 'react-redux';
 import './Nav.css'
+import Dashboard from '../Dashboard/Dashboard';
+import ManageOwners from '../ManageOwners/ManageOwners';
 
 class App extends Component {
 
@@ -9,16 +12,21 @@ class App extends Component {
     return (
       <>
         <div className="title">
-            Barkingham Pawlace
+          Barkingham Pawlace
         </div>
-        <div className="nav-container">
+        <Router>
+        <Redirect exact from="/" to="/home" />
+          <div className="nav-container">
             <div className="nav">
-                Dashboard
+            <Link to='/home'>Dashboard</Link>
             </div>
             <div className="nav">
-                Manage Owners
+              <Link to='/owners'>Manage Owners</Link>
             </div>
-        </div>
+          </div>
+          <Route exact path='/home' component={Dashboard} />
+          <Route path='/owners'component={ManageOwners}/>
+        </Router>
       </>
     );
   }
