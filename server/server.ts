@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import templateRouter from './routes/template.router';
+import ownersRouter from './routes/owners.router';
+import petsRouter from './routes/pets.router';
 
 const app: express.Application = express();
 
@@ -9,7 +10,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 /* Routes */
-app.use('/api/template', templateRouter);
+app.use('/api/pets', petsRouter);
+app.use('/api/owners', ownersRouter);
 
 // Serve static files
 app.use(express.static('build'));
