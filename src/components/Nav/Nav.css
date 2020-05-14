@@ -1,25 +1,36 @@
+@import '~antd/dist/antd.css';
+
 .title {
     text-align: center;
-    padding: 60px;
+    padding: 40px;
     background-color: purple;
     color: whitesmoke;
 }
 
 .nav {
     display: inline;
-    border: gray 1px solid;
+    border: goldenrod 1px solid;
     text-align: center;
+    padding: 6px 20% 6px 20%;
+    margin: 4px 0px 4px 0px;
+    text-decoration: none;
+    color: black;
+    background-color: gold;
+}
+
+.nav:hover {
+    background-color: goldenrod;
 }
 
 .nav-container {
     padding: 12px;
     text-align: center;
+    background-color: darkgray;
 }
 
 input, select, button {
     margin-left: 12px;
     margin-right: 12px;
-    margin: auto;
 }
 
 .form {
