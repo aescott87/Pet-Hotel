@@ -39,4 +39,19 @@ router.get(
   }
 );
 
+router.delete(
+  '/', 
+  (req: Request, res: Response, next: express.NextFunction): void => {
+    const Id = req.params.id
+    let queryText = `DELETE FROM "owners" WHERE "id" = $1;`;
+    pool.query(queryText, [Id])
+    .then((result) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log("error deleting owner", error);
+      res.sendStatus(500);
+    });
+  });
+
 export default router;
