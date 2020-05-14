@@ -36,8 +36,6 @@ if (process.env.DATABASE_URL) {
 
   config = {
     host, // Server hosting the postgres database
-    // user,
-    // password,
     port,
     database, // name of application database
     max: 10, // max number of clients in the pool

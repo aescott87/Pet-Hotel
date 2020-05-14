@@ -10,12 +10,13 @@ const router: express.Router = express.Router();
 router.get(
   '/',
   (req: Request, res: Response, next: express.NextFunction): void => {
-    const queryString: string = `INSERT INTO "sample" ("cats") VALUES ($1)`;
+    const queryString: string = `SELECT * FROM pets;`
 
     pool
-      .query(queryString, ['Gizmo'])
+      .query(queryString)
       .then((response: any): void => {
-        res.send(response);
+        console.log(response.rows)
+        res.send(response.rows);
       })
       .catch((err: string): void => {
         console.log(err);
