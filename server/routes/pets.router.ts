@@ -22,4 +22,21 @@ router.get(
   }
 );
 
+router.post(
+  "/",
+  (req: Request, res: Response, next: express.NextFunction): void => {
+    let queryText = `INSERT INTO pets ("name", "breed", "color", "owner_id") VALUES($1, $2, $3, $4);`;
+
+    pool
+      .query(queryText, [req.body.name, req.body.breed, req.body.color, req.body.owner_id])
+      .then((result) => {
+        res.sendStatus(200);
+      })
+      .catch((error) => {
+        console.log("error posting into ", error);
+        res.sendStatus(500);
+      });
+  }
+);
+
 export default router;
