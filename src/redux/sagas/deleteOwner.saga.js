@@ -6,7 +6,7 @@ function* deleteOwner(action) {
     try{
       //Sends delete request and owner ID to server
       yield axios.delete(`/api/owners/${action.payload.id}`);
-      yield put({type: 'GET_OWNERS_SAGA'})
+      yield put({type: 'GET_OWNER_SAGA'})
     }
     catch(error) {
       console.log('Error deleting owner', error);
