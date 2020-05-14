@@ -5,7 +5,7 @@ function* getOwner() {
   try {
     const response = yield axios.get('/api/owners');
 
-    yield put({ type: 'GET_OWNERs_RESPONSE', payload: response.data });
+    yield put({ type: 'GET_OWNERS_RESPONSE', payload: response.data });
   } catch (error) {
     console.error('Get owner failed', error);
   }

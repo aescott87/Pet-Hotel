@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import ownersRouter from './routes/owners.router';
 import petsRouter from './routes/pets.router';
+import checkInRouter from './routes/checkIn.router'
 
 const app: express.Application = express();
 
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 /* Routes */
 app.use('/api/pets', petsRouter);
 app.use('/api/owners', ownersRouter);
+app.use('/api/checkIn', checkInRouter);
 
 // Serve static files
 app.use(express.static('build'));
