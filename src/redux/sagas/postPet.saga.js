@@ -15,4 +15,4 @@ function* getOwnerSaga() {
   yield takeLatest("POST_PET", postPet);
 }
   
-export default getHistorySaga;
+export default getOwnerSaga;

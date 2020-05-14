@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux';
-import sampleReducer from './sample.reducer';
 import historyReducer from './history.reducer'
-import OwnerReducer from './owner.reducer'
+import ownerReducer from './owner.reducer'
 
-const rootReducer = combineReducers({ sampleReducer,historyReducer, OwnerReducer });
+const rootReducer = combineReducers({ historyReducer, ownerReducer });
 
 export default rootReducer;
