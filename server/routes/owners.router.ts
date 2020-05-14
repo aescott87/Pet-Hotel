@@ -8,6 +8,7 @@ router.post(
   "/",
   (req: Request, res: Response, next: express.NextFunction): void => {
     let queryText = `INSERT INTO owners ("name") VALUES($1);`;
+    console.log(req.body)
 
     pool
       .query(queryText, [req.body.name])
@@ -24,12 +25,12 @@ router.post(
 router.get(
   '/',
   (req: Request, res: Response, next: express.NextFunction): void => {
-    const queryString: string = `SELECT * FROM owners ;`
+    const queryString: string = `SELECT o.name, o.id, COUNT(p.name) FROM pets as p FULL JOIN owners as o ON o.id = p.owner_id GROUP BY o.id;`
 
     pool
       .query(queryString)
       .then((response: any): void => {
-        console.log(response)
+
         res.send(response.rows);
       })
       .catch((err: string): void => {
@@ -40,7 +41,7 @@ router.get(
 );
 
 router.delete(
-  '/', 
+  '/:id', 
   (req: Request, res: Response, next: express.NextFunction): void => {
     const Id = req.params.id
     let queryText = `DELETE FROM "owners" WHERE "id" = $1;`;
