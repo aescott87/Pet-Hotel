@@ -15,3 +15,17 @@
     padding: 12px;
     text-align: center;
 }
+
+input, select, button {
+    margin-left: 12px;
+    margin-right: 12px;
+    margin: auto;
+}
+
+.form {
+    text-align: center;
+}
+
+.form-center {
+    display: inline-block;
+}

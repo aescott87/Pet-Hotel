@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class Dashboard extends Component {
 
@@ -18,33 +18,37 @@ class Dashboard extends Component {
         event.preventTargetDefault();
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <>
-            <h3>Add Pet</h3>
-            <form>
-                <input onChange={this.handleChange('name')} />
-                <input onChange={this.handleChange('color')} />
-                <input onChange={this.handleChange('breed')} />
-                <select id="owner">
-                    {/* {this.props.store.owners.map((owner) => 
+                <h3>Add Pet</h3>
+                <div className="form">
+                    <div className="form-center">
+                        <form>
+                            <input onChange={this.handleChange('name')} />
+                            <input onChange={this.handleChange('color')} />
+                            <input onChange={this.handleChange('breed')} />
+                            <select id="owner">
+                                {/* {this.props.store.owners.map((owner) => 
                     <option value={owner.name}>{owner.name}</option>)} */}
-                </select>
-                <button>Submit</button>
-            </form>
-            <h3>History</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Owner</th>
-                        <th>Pet</th>
-                        <th>Breed</th>
-                        <th>Color</th>
-                        <th>Checked in</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-            </table>
+                            </select>
+                            <button>Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <h3>History</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Owner</th>
+                            <th>Pet</th>
+                            <th>Breed</th>
+                            <th>Color</th>
+                            <th>Checked in</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                </table>
             </>
         )
     }
