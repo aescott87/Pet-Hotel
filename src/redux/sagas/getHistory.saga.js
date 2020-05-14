@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* getHistorySaga() {
-    yield takeLatest('GET_HISTORY_SAGA', sampleGet);
+function* getHistory() {
   try {
     const response = yield axios.get('/api/pets');
 
@@ -12,5 +11,8 @@ function* getHistorySaga() {
   }
 }
 
-
+function* getHistorySaga() {
+    yield takeLatest('GET_HISTORY_SAGA', getHistory);
+  }
+  
 export default getHistorySaga;

@@ -1,9 +1,10 @@
 import { all } from 'redux-saga/effects';
-import historysaga from './history.saga';
+import getHistory from './getHistory.saga';
 import deletePetSaga from './deletePets.saga';
 import deleteOwnerSaga from './deleteOwner.saga';
+import getOwner from './getOwner.saga';
 
 export default function* rootSaga() {
-  yield all([history.saga(), deletePetSaga(),
+  yield all([getHistory(), getOwner(),deletePetSaga(),
     deleteOwnerSaga(),]);
 }
