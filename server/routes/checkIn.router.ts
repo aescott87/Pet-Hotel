@@ -4,12 +4,14 @@ import pool from "../modules/pool";
 
 const router: express.Router = express.Router();
 router.put(
-    "/petId",
+    "/:id",
     (req: Request, res: Response, next: express.NextFunction): void => {
-      let queryText = `UPDATE PETS SET checked_in = CURRENT_TIMESTAMP WHERE id = 1;`;
+      console.log("id we are using is", req.params.id);
+      
+      let queryText = `UPDATE PETS SET checked_in = CURRENT_TIMESTAMP WHERE id = $1;`;
   
       pool
-        .query(queryText, [req.body.id])
+        .query(queryText, [req.params.id])
         .then((result) => {
           res.sendStatus(200);
         })
