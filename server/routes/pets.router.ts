@@ -46,7 +46,7 @@ router.put(
     let queryText = `UPDATE PETS SET checked_in = NULL WHERE id = $1 `;
 
     pool
-      .query(queryText, [req.body.id])
+      .query(queryText, [req.params.id])
       .then((result) => {
         res.sendStatus(200);
       })

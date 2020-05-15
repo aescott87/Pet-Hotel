@@ -52,6 +52,10 @@ class Dashboard extends Component {
         this.props.dispatch({type: 'CHECK_IN_SAGA', payload: id})
     }
 
+    handleCheckOut = (id) => () => {
+        this.props.dispatch({type: 'CHECK_OUT_SAGA', payload: id})
+    }
+
     render() {
         return (
             <>
@@ -94,7 +98,7 @@ class Dashboard extends Component {
                             title: '',
                             dataIndex: 'checked_in',
                             key: 'id',
-                        render: (date, owner, pet) => <>{date === null ? <><button onClick={this.handleDelete(owner.id)}>DELETE</button> | <button onClick={this.handleCheckIn(owner.id)}>Check in</button></> : <><button onClick={this.handleDelete(owner.id)}>DELETE</button> | <button>Check out</button></>}</>
+                        render: (date, owner, pet) => <>{date === null ? <><button onClick={this.handleDelete(owner.id)}>DELETE</button> | <button onClick={this.handleCheckIn(owner.id)}>Check in</button></> : <><button onClick={this.handleDelete(owner.id)}>DELETE</button> | <button onClick={this.handleCheckOut(owner.id)}>Check out</button></>}</>
                         }
                     ]} dataSource={this.props.store.historyReducer} />
             </>

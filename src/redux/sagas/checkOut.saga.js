@@ -5,8 +5,8 @@ function* checkOut(event) {
     console.log('in checkout', event.payload)
     try{
       //Sends delete request and pet ID to server
-      yield axios.put(`/api/pet/${event.payload.id}`);
-      yield put({type: 'GET_HISTORY_RESPONSE'})
+      yield axios.put(`/api/pets/${event.payload}`);
+      yield put({type: 'GET_HISTORY_SAGA'})
     }
     catch(error) {
       console.log('Error checkingout pet', error);
