@@ -41,7 +41,7 @@ router.post(
   }
 );
 router.put(
-  "/petId",
+  "/:id",
   (req: Request, res: Response, next: express.NextFunction): void => {
     let queryText = `UPDATE PETS SET checked_in = NULL WHERE id = $1 `;
 
