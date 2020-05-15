@@ -44,6 +44,10 @@ class Dashboard extends Component {
         })
     }
 
+    handleDelete = (id) => () => {
+        this.props.dispatch({type: 'DELETE_PET', payload: id});
+    }
+
     render() {
         return (
             <>
@@ -86,7 +90,7 @@ class Dashboard extends Component {
                             title: '',
                             dataIndex: 'checked_in',
                             key: 'id',
-                        render: date => <>{date === null ? <><button>DELETE</button> | <button>Check in</button></> : <><button>DELETE</button> | <button>Check out</button></>}</>
+                        render: (date, owner) => <>{date === null ? <><button onClick={this.handleDelete(owner.id)}>DELETE</button> | <button>Check in</button></> : <><button onClick={this.handleDelete(owner.id)}>DELETE</button> | <button>Check out</button></>}</>
                         }
                     ]} dataSource={this.props.store.historyReducer} />
             </>
