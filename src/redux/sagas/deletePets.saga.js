@@ -5,8 +5,8 @@ function* deletePet(event) {
     console.log('in deletePet', event.payload)
     try{
       //Sends delete request and pet ID to server
-      yield axios.delete(`/api/pet/${event.payload.id}`);
-      yield put({type: 'GET_HISTORY_RESPONSE'})
+      yield axios.delete(`/api/pets/${event.payload}`);
+      yield put({type: 'GET_HISTORY_SAGA'})
     }
     catch(error) {
       console.log('Error deleting pet', error);

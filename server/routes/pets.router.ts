@@ -58,7 +58,7 @@ router.put(
 );
 
 router.delete(
-  '/', 
+  '/:id', 
   (req: Request, res: Response, next: express.NextFunction): void => {
     const Id = req.params.id
     let queryText = `DELETE FROM "pets" WHERE "id" = $1;`;
