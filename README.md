@@ -1,69 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pet Hotel
 
-## Available Scripts
+*Duration: 2 Day Sprint*
 
-In the project directory, you can run:
+This group project is centered around a fictional pet hotel, Barkingham Pawlace. The app allows the user to add new owners and pets to the database, and also allows check in/out and delete functionality.
 
-### `npm start`
+## Screen Shot
+![View of home page](barkingham-pawlace.png)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Prerequisites
+- Node.js
+- Express
+- PostgreSQL
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Installation
+1. Create a database named `barkingham_pawlace` and add two tables. The `database.sql` file in this project has the queries needed to create these tables.
+2. Open your code editor and run an `npm install`
+3. Run `npm start` in your terminal
+4. Open a second terminal window and run an `npm run client`
+5. The previous command will open a browser tab granting you access to the site
 
-### `npm test`
+## Usage
+1. The home page has two tabs: Dashboard and Manage Owners. The page will always default to the Dashboard view.
+2. To add a new pet and owner, you will first need to go to the Manage Owners tab. Enter the owner's name and submit. Once added to the list, the owner will be listed as having 0 pets until you add a pet and assign to the owner.
+3. On the Dashboard under Add Pet, enter the pet's name, breed, color, and select their owner from the dropdown menu. Once all information has been added, submit.
+4. To check a pet into the hotel, click the Check In button. This will update to show the date the pet was checked in. Selecting Check Out will revert the pet back to a "Check In" status of "No".
+5. To delete a pet or owner, select the Delete button for that particular row.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Built With
+- React
+- Node.js
+- Express
+- TypeScript
+- JavaScript
+- Ant Design
 
-### `npm run build`
+## Acknowledgement
+Thanks to my cohort team members for helping build this application and providing troubleshooting when I ran into issues.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Support
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# pet-hotel
+Please send issues to aescott87@gmail.com
