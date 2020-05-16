@@ -12,9 +12,9 @@ class Dashboard extends Component {
         owner_id: 0,
     }
 
-    componentDidMount(){
-        this.props.dispatch({type: 'GET_OWNER_SAGA'});
-        this.props.dispatch({type: 'GET_HISTORY_SAGA'});
+    componentDidMount() {
+        this.props.dispatch({ type: 'GET_OWNER_SAGA' });
+        this.props.dispatch({ type: 'GET_HISTORY_SAGA' });
     }
 
     handleChange = (input) => (event) => {
@@ -31,7 +31,7 @@ class Dashboard extends Component {
             breed: this.state.breed,
             owner_id: this.state.owner_id
         }
-        this.props.dispatch({type: 'POST_PET', payload: newPet})
+        this.props.dispatch({ type: 'POST_PET', payload: newPet })
         this.resetInputs();
     }
 
@@ -45,15 +45,15 @@ class Dashboard extends Component {
     }
 
     handleDelete = (id) => () => {
-        this.props.dispatch({type: 'DELETE_PET', payload: id});
+        this.props.dispatch({ type: 'DELETE_PET', payload: id });
     }
 
     handleCheckIn = (id) => () => {
-        this.props.dispatch({type: 'CHECK_IN_SAGA', payload: id})
+        this.props.dispatch({ type: 'CHECK_IN_SAGA', payload: id })
     }
 
     handleCheckOut = (id) => () => {
-        this.props.dispatch({type: 'CHECK_OUT_SAGA', payload: id})
+        this.props.dispatch({ type: 'CHECK_OUT_SAGA', payload: id })
     }
 
     render() {
@@ -61,22 +61,23 @@ class Dashboard extends Component {
             <>
                 <div className="form">
                     <div className="form-center">
-                    <h3>Add Pet</h3>
+                        <h3>Add Pet</h3>
                         <form>
                             <input onChange={this.handleChange('name')} placeholder="Pet Name" />
                             <input onChange={this.handleChange('color')} placeholder="Color" />
                             <input onChange={this.handleChange('breed')} placeholder="Breed" />
                             <select id="owner" onChange={this.handleChange('owner_id')}>
                                 <option default>Choose one</option>
-                                {this.props.store.ownerReducer.map((owner) => 
-                                <option value={owner.id}>{owner.name}</option>)}
+                                {this.props.store.ownerReducer.map((owner) =>
+                                    <option value={owner.id}>{owner.name}</option>)}
                             </select>
                             <button onClick={this.handleSubmit}>Submit</button>
                         </form>
                     </div>
                 </div>
-                <h3>History</h3>
-                <Table columns={[
+                <h3 className="table-heading">History</h3>
+                <div className="pet-history">
+                    <Table columns={[
                         {
                             title: 'Name',
                             dataIndex: 'name',
@@ -98,9 +99,10 @@ class Dashboard extends Component {
                             title: '',
                             dataIndex: 'checked_in',
                             key: 'id',
-                        render: (date, owner, pet) => <>{date === null ? <><button onClick={this.handleDelete(owner.id)}>DELETE</button> | <button onClick={this.handleCheckIn(owner.id)}>Check in</button></> : <><button onClick={this.handleDelete(owner.id)}>DELETE</button> | <button onClick={this.handleCheckOut(owner.id)}>Check out</button></>}</>
+                            render: (date, owner, pet) => <>{date === null ? <><button onClick={this.handleDelete(owner.id)}>DELETE</button> | <button onClick={this.handleCheckIn(owner.id)}>Check in</button></> : <><button onClick={this.handleDelete(owner.id)}>DELETE</button> | <button onClick={this.handleCheckOut(owner.id)}>Check out</button></>}</>
                         }
                     ]} dataSource={this.props.store.historyReducer} />
+                </div>
             </>
         )
     }

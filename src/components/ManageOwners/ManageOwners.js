@@ -40,7 +40,8 @@ class ManageOwners extends Component {
                             </form>
                         </div>
                     </div>
-                    <h3>Owners</h3>
+                    <h3 className="table-heading">Owners</h3>
+                    <div className="pet-owners">
                     <Table columns={[
                         {
                             title: 'Name',
@@ -57,6 +58,7 @@ class ManageOwners extends Component {
                             render: () => <>{<button>DELETE</button>}</>
                         }
                     ]} dataSource={this.props.reduxStore.ownerReducer} />
+                    </div>
                 </>
             );
         }

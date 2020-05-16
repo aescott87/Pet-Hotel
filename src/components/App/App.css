@@ -1,3 +1,15 @@
 .app {
     margin: auto;
 }
+
+.pet-history {
+    margin: 10px;
+}
+
+.pet-owners{
+    margin: 10px;
+}
+
+.table-heading {
+    margin: 5px;
+}
